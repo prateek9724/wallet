@@ -85,6 +85,11 @@ class MongoSchema extends ExpressApp {
     }
 
     async applySchemaValidator(col_name, validator) {
+        try{
+            await this.db.createCollection('wallets');
+        }catch(e){  
+            console.log('error in creating collection', e);
+        }
         const response = await this.db.command({ collMod: col_name, validator });
         if(response.ok !==1){
             console.error('Error while creating schema validator for collection ' , col_name);

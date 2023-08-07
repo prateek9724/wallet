@@ -3,9 +3,11 @@
 Prerequisites:
 1. Nodejs (v14.16.0)
 
-Set Up:
-1. clone the wallet repo.
+How to Run? 
 
+1. clone the wallet repo.
+   
+   #Setup For Wallet Backend Service.
 2. In root directory of the Project, execute -  npm i
 
 3. Set up the Schema indexes/validators using following command.  
