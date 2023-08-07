@@ -4,7 +4,8 @@ const { ExpressApp, initDefaultOptions, initialze, initValidateOptions } = requi
     { addMongoDbOptions, initMongoClient } = require('../lib/mongodb-utls'),
     { ObjectId, Decimal128 } = require('mongodb'),
     asMain = (require.main === module);
-;
+
+const path = require('path');
 
 const parseOptions = (argv) => {
     let cmd = initDefaultOptions(1600);
@@ -33,11 +34,19 @@ class WalletService extends ExpressApp {
 
     registerRoutes() {
         const router = this.router;
+        
+        // To server the React App.
+        this.app.use(this.express.static(path.resolve(__dirname, '../frontend/wallet-fe/build')));
+        router.get('/wallet/app', this.renderApp.bind(this));
 
         router.post('/wallet/setup', this.createWallet.bind(this));
         router.post('/wallet/transact/:walletId', this.performTransaction.bind(this));
         router.get('/wallet/transactions', this.listTransactionsByWallet.bind(this));
         router.get('/wallet/:walletId', this.getWalletById.bind(this));
+    }
+
+    async renderApp(req, res){
+       return res.sendFile(path.resolve(__dirname, '../frontend/wallet-fe/build', 'index.html'));
     }
 
     async createWallet(req, res) {

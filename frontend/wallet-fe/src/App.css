@@ -1,0 +1,60 @@
+
+.loader {
+    padding: 10px;
+    top: 40%;
+    left: 45%;
+    position: absolute;
+    z-index: 999;
+}
+
+.card{
+    max-width: 400px;
+    margin: 0 auto;
+    /* padding: 20px; */
+}
+
+.cardContent{
+    padding: 16px 0px 0px 0px;
+}
+
+.tabHeader{
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.tableContainer{
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.MuiBox-root-15 {
+    display: flex;
+}
+
+.MuiTablePagination-spacer {
+    flex: none !important;
+}
+
+.MuiIconButton-root{ padding: 0px !important;}
+
+div.MuiTablePagination-root {   display: flex !important;} 
+
+.greenIcon{
+    color: green;
+}
+
+.redIcon{
+    color: red;
+}
+
+.downloadBtn {
+    display: flex;
+    align-items: center;
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+    .card, .tableContainer {
+      max-width: 600px;
+    }
+}
