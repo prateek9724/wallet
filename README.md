@@ -1,11 +1,28 @@
-*** Wallet Service ***
+*** [Wallet Service](https://wallet-app-ryzh.onrender.com/) ***  
+**NOTE: App waking up... Wait up to 1 minute.** App spins down when there is no activity. Please wait up to 1 minute if the app doesn't load immediately in your browser.
 
-Prerequisites:
-1. Nodejs (v14.16.0)
+💪 **Unlock Efficient MongoDB Development: Essential Use Cases & Solutions**
+This repository is a treasure trove for developers seeking to master MongoDB fundamentals and build robust applications. Specifically, it's ideal for:
+- MongoDB Beginners: Learn MongoDB transactions, indexing, and CRUD API development through a relatable Wallet Application example.
+- Intermediate Developers: Refine your skills in optimizing search queries with MongoDB indexes and ensuring data consistency with transactions.
+- Full-Stack Enthusiasts: Discover how to integrate MongoDB with your applications, leveraging transactions to prevent negative balances and optimize data retrieval.
 
+⚡**By exploring this repo, you'll gain hands-on experience with:**
+- _**MongoDB Transactions**_: Ensure data integrity and prevent inconsistencies, like negative balances, using atomic operations. 
+   - 🏢 [  Official Documentation](https://www.mongodb.com/docs/v6.2/core/transactions/)
+- _**Indexing**_: Supercharge your search queries with optimized indexes, streamlining data retrieval and enhancing performance.
+   - 🏢 [Official Documentation](https://www.mongodb.com/docs/manual/indexes/)
+- _**CRUD API Development**:_ Build meaningful APIs for creating, reading, updating, and deleting data, using the Wallet Application as a practical example.
+
+**Dive into this repository to elevate your MongoDB skills and develop efficient, scalable applications.**
+
+
+ 
+**Prerequisites:**
+1. Nodejs (v14.16.0 or above) 
 
 /**
-*** How to Setup locally? ***
+🖥️🖱️ **How to Setup locally?** 
 */
 1. Clone the wallet repo & switch to branch - master .
    
@@ -28,8 +45,11 @@ Prerequisites:
    - http://localhost:1600/api/v1/wallet/app 
 
 
+
+✍️ **Application Description**
+
 /**
-*** API Endpoints: ***
+**API Endpoints:**
 */
 1. Setup the wallet
 *** POST: /api/v1/wallet/setup ***
@@ -82,7 +102,7 @@ Ex -
 
 
 /**
-*** Schema & query design. ***
+**Schema & query design.**
 */
 
 1. Wallets Schema: 
@@ -132,9 +152,7 @@ Ex- {
   "balance": 0
 }
 
-
-* Query Design - 
-
+**Query Design** 
 1. Search Query in wallets collection:
    Search query is applied on _id: ObjectId("walletId") 
    which don't need any new Index to be created.
@@ -144,7 +162,7 @@ Ex- {
    *** So created an index on walletId in transactions collection. ***
 
 
-* Schema validator
+**Schema validator**
 1. on wallet collection. Wallet balance can never go negative.
   *** Applied a schema validator for balance<Decimal> field in wallets collection so that for any transaction its value can never go negative. ***
   *** Throws error if any transacion takes the wallet balance to less than 0 then it throws an error and no transaction commit happens ***
